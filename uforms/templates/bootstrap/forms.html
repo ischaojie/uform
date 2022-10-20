@@ -1,0 +1,42 @@
+{% macro input(name, value, id, type='text', extra_attrs='', extra=None,
+wrapper_class="mb-3") -%}
+  <div class="{{ wrapper_class }}">
+    {% if type == 'checkbox' %}
+      <input
+          class="form-check-input"
+          type="{{ type }}"
+          name="{{ name }}"
+          value="{{ value|e }}"
+          id="{{ id }}"
+          {{ extra_attrs }}
+      />
+      <label for="{{ id }}" class="form-check-label">{{ name }}</label>
+    {% elif type == 'radio' %}
+      {% if extra %}
+        {% for e in extra["options"] %}
+          <div class="form-check form-check-inline">
+            <input
+                class="form-check-input"
+                type="radio"
+                name="{{ name }}"
+                id="{{ e.id }}"
+                value="{{ e.value }}"
+                {{ e["checked"] and 'checked' or '' }}
+            />
+            <label class="form-check-label" for="{{ e.id }}">{{ e.name }}</label>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% else %}
+      <label for="{{ id }}" class="form-label">{{ name }}</label>
+      <input
+          class="form-control"
+          type="{{ type }}"
+          name="{{ name }}"
+          value="{{ value|e }}"
+          id="{{ id }}"
+          {{ extra_attrs }}
+      />
+    {% endif %}
+  </div>
+{%- endmacro %}
