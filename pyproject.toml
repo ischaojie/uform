@@ -4,11 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "uforms"
-description = 'Modernized forms validation and rendering'
+description = 'Modernized forms auto validation and rendering'
 readme = "README.md"
 requires-python = ">=3.7"
 license = "MIT"
-keywords = ["forms", "pydantic"]
+keywords = ["forms", "pydantic", "automate"]
 authors = [
   { name = "chaojie", email = "hi@chaojie.fun" },
 ]

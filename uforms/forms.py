@@ -1,3 +1,4 @@
+from __future__ import annotations
 from datetime import date, datetime, time
 from enum import Enum
 from secrets import token_hex
@@ -119,5 +120,5 @@ class Jinja2Form(Form):
         loader = PackageLoader("uforms", "templates")
         return Environment(loader=loader, autoescape=True)
 
-    def register(self, schema: BaseModel) -> Form:
+    def register(self, schema: type[BaseModel]) -> Form:
         return Form(env=self.env, schema=schema, theme=self.theme)

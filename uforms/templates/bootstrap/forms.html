@@ -21,7 +21,7 @@ wrapper_class="mb-3") -%}
                 name="{{ name }}"
                 id="{{ e.id }}"
                 value="{{ e.value }}"
-                {{ e["checked"] and 'checked' or '' }}
+                {{ e['checked'] and 'checked' or '' }}
             />
             <label class="form-check-label" for="{{ e.id }}">{{ e.name }}</label>
           </div>
